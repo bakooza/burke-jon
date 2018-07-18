@@ -20,6 +20,7 @@ function createMyObject() {
    
 */
 
+
 (function testCreateMyObject() {
 	var obj = createMyObject();
 	if (typeof obj !== 'object') {

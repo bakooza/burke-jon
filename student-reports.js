@@ -5,62 +5,62 @@
 
 // makeStudentReport should return an array of strings. For each item in data, return a string
 //  that looks like this: '[name]: [grade]'. The name and grade values on the student object should be substituted in.
-
+'use strict';
 
 function makeStudentsReport(data) {
-    const newArray = [];
-    data.forEach(element => newArray.push(`${element.name}: ${element.grade}`));
-    return newArray;
-  }
+	const newArray = [];
+	data.forEach(element => newArray.push(`${element.name}: ${element.grade}`));
+	return newArray;
+}
   
-  /* From here down, you are not expected to 
+/* From here down, you are not expected to 
      understand.... for now :)  
      
      Nothing to see here!
      
   */
   
-  // tests
+// tests
   
-  function testIt() {
-    const testData = [
-      { name: 'Jane Doe', grade: 'A' },
-      { name: 'John Dough', grade: 'B' },
-      { name: 'Jill Do', grade: 'A' },
-    ];
+function testIt() {
+	const testData = [
+		{ name: 'Jane Doe', grade: 'A' },
+		{ name: 'John Dough', grade: 'B' },
+		{ name: 'Jill Do', grade: 'A' },
+	];
   
-    const expectations = ['Jane Doe: A', 'John Dough: B', 'Jill Do: A'];
+	const expectations = ['Jane Doe: A', 'John Dough: B', 'Jill Do: A'];
   
-    const results = makeStudentsReport(testData);
+	const results = makeStudentsReport(testData);
   
-    if (!(results && results instanceof Array)) {
-      console.error('FAILURE: `makeStudentsReport` must return an array');
-      return;
-    }
-    if (results.length !== testData.length) {
-      console.error(
-        'FAILURE: test data had length of ' +
+	if (!(results && results instanceof Array)) {
+		console.error('FAILURE: `makeStudentsReport` must return an array');
+		return;
+	}
+	if (results.length !== testData.length) {
+		console.error(
+			'FAILURE: test data had length of ' +
           testData.length +
           ' but `makeStudentsReport` returned array of length ' +
           results.length
-      );
-      return;
-    }
-    for (let i = 0; i < expectations.length; i++) {
-      let expect = expectations[i];
-      if (
-        !results.find(function(item) {
-          return item === expect;
-        })
-      ) {
-        console.error(
-          'FAILURE: `makeStudentsReport` is not ' + 'producing expected strings'
-        );
-        return;
-      }
-    }
-    console.log('SUCCESS: `makeStudentsReport` is working');
-  }
+		);
+		return;
+	}
+	for (let i = 0; i < expectations.length; i++) {
+		let expect = expectations[i];
+		if (
+			!results.find(function(item) {
+				return item === expect;
+			})
+		) {
+			console.error(
+				'FAILURE: `makeStudentsReport` is not ' + 'producing expected strings'
+			);
+			return;
+		}
+	}
+	console.log('SUCCESS: `makeStudentsReport` is working');
+}
   
-  testIt();
+testIt();
   
