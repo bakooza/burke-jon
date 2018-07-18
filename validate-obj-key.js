@@ -13,6 +13,18 @@ function validateKeys(object, expectedKeys) {
   }
 }
 
+// function validateKeys(object, expectedKeys) {
+//   const objKeys = Object.keys(object);
+//   if (objKeys.length !== expectedKeys.length) {
+//     return false;
+//   }
+//   let trueCounter = 0;
+//   const filteredArray = objKeys.filter((element, index) => element === expectedKeys[index])
+//   if (filteredArray.length === expectedKeys.length) {
+//     return true;
+//   }
+// }
+
 
 
 /* From here down, you are not expected to 
@@ -103,3 +115,5 @@ function testIt() {
 }
 
 testIt();
+
+
