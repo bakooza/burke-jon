@@ -1,24 +1,7 @@
 'use strict';
 
-/*function mammal(name, numEyes) {
-  return {
-    name: name,
-    isWarmblooded: true,
-    numEyes: numEyes,
-    evolve: function() {
-      console.log("I'm not mutating, I'm evolving.");
-      this.numEyes++;
-    },
-    explainYourSelf: function() {
-      console.log(
-        `I'm just a ${this.name} with ${this
-          .numEyes}  eye(s). Nothing to see here.`
-      );
-    },
-  };
-}*/
 
-function createCharacter(name, nickname, race, origin, attack, defense) {
+function createCharacter(name, nickname, race, origin, attack, defense, weapon) {
   return {
     name,
     nickname,
@@ -26,8 +9,9 @@ function createCharacter(name, nickname, race, origin, attack, defense) {
     origin,
     attack,
     defense,
+    weapon,
     describe: function() {
-      console.log(`${this.name} is a ${this.race} from ${this.origin}`);
+      console.log(`${this.name} is a ${this.race} from ${this.origin} who uses ${this.weapon}.`);
     },
     evaluateFight: function(charObj) {
       let x = 0;
@@ -44,18 +28,12 @@ function createCharacter(name, nickname, race, origin, attack, defense) {
 }
 
 
-const legolas = createCharacter("legolas", "l", "elf", "road", 23, 20);
-const aragorn = createCharacter("aragorn", "m", "human", "woods", 10, 11);
-console.log(legolas.evaluateFight(aragorn));
-
-
-
 const characters = [
-  createCharacter("Gandalf the White", "gandalk", "Wizard", "Middle Earth", 10, 6),
-  createCharacter("Bilbo Baggins", "bilbo", "Hobbit", "The Shire", 2, 1),
-  createCharacter("Frodo Baggins", "frodo", "Hobbit", "The Shire", 3, 2),
-  createCharacter("Aragorn son of Arathorn", "aragorn", "Man", "Dunnedain", 6, 8),
-  createCharacter("Legolas", "legolas", "Elf", "Woodland Realm", 8, 5)
+  createCharacter("Gandalf the White", "gandalk", "Wizard", "Middle Earth", 10, 6, "a wizard staff"),
+  createCharacter("Bilbo Baggins", "bilbo", "Hobbit", "The Shire", 2, 1, "the Ring"),
+  createCharacter("Frodo Baggins", "frodo", "Hobbit", "The Shire", 3, 2, "a String and Barrow Blade"),
+  createCharacter("Aragorn son of Arathorn", "aragorn", "Man", "Dunnedain", 6, 8, "Anduril"),
+  createCharacter("Legolas", "legolas", "Elf", "Woodland Realm", 8, 5, "a Bow and Arrow")
 ];
 
 characters.push(createCharacter("Arwen Undomiel", "Arwen", "Half-elf", "Rivendell", 2, 7));
@@ -63,3 +41,11 @@ characters.push(createCharacter("Arwen Undomiel", "Arwen", "Half-elf", "Rivendel
 // console.log(characters);
 
 characters.find(character => character.nickname === 'aragorn').describe();
+
+const hobbitCharacters = characters.filter(element => element.race === 'Hobbit');
+//console.log(hobbitCharacters);
+const goodCharacters = characters.filter(element => element.attack > 5);
+//console.log(goodCharacters);
+
+
+console.log(characters[0].describe());
