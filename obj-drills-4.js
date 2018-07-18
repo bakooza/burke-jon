@@ -6,29 +6,36 @@ const jon = {
 
 const burkey = {
   name: 'Burkey',
-  jobTitle: 'student'
+  jobTitle: 'student',
+  boss: 'Jon'
 };
 
 const alex = {
   name: 'Alex',
-  jobTitle: 'student'
+  jobTitle: 'student',
+  boss: 'Jon'
 };
  
 const kelly = {
   name: 'Kelly',
-  jobTitle: 'student'
+  jobTitle: 'student',
+  boss: 'Jon'
 };
 
 const tarik = {
   name: 'Tarik',
-  jobTitle: 'student'
+  jobTitle: 'student',
+  boss: 'Jon'
 };
 
 const peopleArray = [jon, burkey, alex, kelly, tarik];
 
-console.log(peopleArray);
+function display(arr) {
+  arr.forEach(element => !element.boss ?
+    console.log(`Founder ${element.name} doesn't report to anybody.`)
+    : console.log(`${element.jobTitle} ${element.name} reports to ${element.boss}.`))
+  }
 
-peopleArray.forEach(element => console.log(element.name + ': ' + element.jobTitle));
 
-
+display(peopleArray);
 // Jon: Student
